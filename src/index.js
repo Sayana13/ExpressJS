@@ -5,16 +5,18 @@ import bodyParser from "body-parser";
 import parseResponse from "./modules/core/parseResponse";
 import cors from "./modules/core/cors";
 import routes from "./modules/core/routes";
+import dbConnect from "./modules/core/db";
 
 const app = express();
 const PORT = 5000;
 
+
+dbConnect();
 logger(app);
 parseResponse(app);
 cors(app);
 routes(app);
-// app.get('/', home);
-// app.post('/info', info);
+
 
 errorHandler(app);
 
